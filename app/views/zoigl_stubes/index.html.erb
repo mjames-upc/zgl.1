@@ -1,27 +1,31 @@
-<h1>Listing zoigl_stubes</h1>
-
-<table>
+<%- model_class = ZoiglStube -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ZoiglStube %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Stube name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Rbid</th>
-      <th>Founded</th>
-      <th>Score</th>
-      <th>Lat</th>
-      <th>Lon</th>
-      <th>Web</th>
-      <th>Hours</th>
-      <th>Description</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:stube_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:rbid) %></th>
+      <th><%= model_class.human_attribute_name(:founded) %></th>
+      <th><%= model_class.human_attribute_name(:score) %></th>
+      <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:lon) %></th>
+      <th><%= model_class.human_attribute_name(:web) %></th>
+      <th><%= model_class.human_attribute_name(:hours) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @zoigl_stubes.each do |zoigl_stube| %>
       <tr>
+        <td><%= zoigl_stube.id %></td>
         <td><%= zoigl_stube.stube_name %></td>
         <td><%= zoigl_stube.address %></td>
         <td><%= zoigl_stube.city %></td>
@@ -34,14 +38,21 @@
         <td><%= zoigl_stube.hours %></td>
         <td><%= zoigl_stube.description %></td>
         <td><%= zoigl_stube.phone %></td>
-        <td><%= link_to 'Show', zoigl_stube %></td>
-        <td><%= link_to 'Edit', edit_zoigl_stube_path(zoigl_stube) %></td>
-        <td><%= link_to 'Destroy', zoigl_stube, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l zoigl_stube.created_at, format: :long %></td>
+        <td>
+          <%= link_to zoigl_stube_path(zoigl_stube), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to zoigl_stube_path(zoigl_stube), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Zoigl stube', new_zoigl_stube_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_zoigl_stube_path,
+            :class => 'btn btn-primary' %>
