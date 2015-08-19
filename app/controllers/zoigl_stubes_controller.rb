@@ -1,5 +1,5 @@
 class ZoiglStubesController < ApplicationController
-  before_action :set_zoigl_stube, only: [:show, :edit, :update, :destroy]
+  before_action :set_zoigl_stube, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /zoigl_stubes
   # GET /zoigl_stubes.json
