@@ -1,0 +1,47 @@
+<h1>Listing zoigl_stubes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stube name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Rbid</th>
+      <th>Founded</th>
+      <th>Score</th>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Web</th>
+      <th>Hours</th>
+      <th>Description</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zoigl_stubes.each do |zoigl_stube| %>
+      <tr>
+        <td><%= zoigl_stube.stube_name %></td>
+        <td><%= zoigl_stube.address %></td>
+        <td><%= zoigl_stube.city %></td>
+        <td><%= zoigl_stube.rbid %></td>
+        <td><%= zoigl_stube.founded %></td>
+        <td><%= zoigl_stube.score %></td>
+        <td><%= zoigl_stube.lat %></td>
+        <td><%= zoigl_stube.lon %></td>
+        <td><%= zoigl_stube.web %></td>
+        <td><%= zoigl_stube.hours %></td>
+        <td><%= zoigl_stube.description %></td>
+        <td><%= zoigl_stube.phone %></td>
+        <td><%= link_to 'Show', zoigl_stube %></td>
+        <td><%= link_to 'Edit', edit_zoigl_stube_path(zoigl_stube) %></td>
+        <td><%= link_to 'Destroy', zoigl_stube, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zoigl stube', new_zoigl_stube_path %>

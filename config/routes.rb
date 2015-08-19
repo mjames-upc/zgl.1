@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :zoigl_stubes
+
   resources :zoigl_beers do
   #->Prelang (voting/acts_as_votable)
   member do
