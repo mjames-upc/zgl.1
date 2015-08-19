@@ -1,5 +1,5 @@
 class ZoiglBeersController < ApplicationController
-  before_action :set_zoigl_beer, only: [:show, :edit, :update, :destroy]
+  before_action :set_zoigl_beer, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /zoigl_beers
   # GET /zoigl_beers.json
