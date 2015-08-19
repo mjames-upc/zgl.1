@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Begin:</strong>
+  <%= @zoigl_kalendar.begin %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @zoigl_kalendar.end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @zoigl_kalendar.description %>
+</p>
+
+<p>
+  <strong>Zoigl stube:</strong>
+  <%= @zoigl_kalendar.zoigl_stube %>
+</p>
+
+<%= link_to 'Edit', edit_zoigl_kalendar_path(@zoigl_kalendar) %> |
+<%= link_to 'Back', zoigl_kalendars_path %>

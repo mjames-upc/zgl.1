@@ -1,0 +1,31 @@
+<h1>Listing zoigl_kalendars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Begin</th>
+      <th>End</th>
+      <th>Description</th>
+      <th>Zoigl stube</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zoigl_kalendars.each do |zoigl_kalendar| %>
+      <tr>
+        <td><%= zoigl_kalendar.begin %></td>
+        <td><%= zoigl_kalendar.end %></td>
+        <td><%= zoigl_kalendar.description %></td>
+        <td><%= zoigl_kalendar.zoigl_stube %></td>
+        <td><%= link_to 'Show', zoigl_kalendar %></td>
+        <td><%= link_to 'Edit', edit_zoigl_kalendar_path(zoigl_kalendar) %></td>
+        <td><%= link_to 'Destroy', zoigl_kalendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zoigl kalendar', new_zoigl_kalendar_path %>
