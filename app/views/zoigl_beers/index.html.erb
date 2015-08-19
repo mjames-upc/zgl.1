@@ -1,33 +1,44 @@
-<h1>Listing zoigl_beers</h1>
-
-<table>
+<%- model_class = ZoiglBeer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ZoiglBeer %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Beername</th>
-      <th>Rbid</th>
-      <th>Rbbrewer</th>
-      <th>Alcohol</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:beername) %></th>
+      <th><%= model_class.human_attribute_name(:rbid) %></th>
+      <th><%= model_class.human_attribute_name(:rbbrewer) %></th>
+      <th><%= model_class.human_attribute_name(:alcohol) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @zoigl_beers.each do |zoigl_beer| %>
       <tr>
+        <td><%= zoigl_beer.id %></td>
         <td><%= zoigl_beer.beername %></td>
         <td><%= zoigl_beer.rbid %></td>
         <td><%= zoigl_beer.rbbrewer %></td>
         <td><%= zoigl_beer.alcohol %></td>
         <td><%= zoigl_beer.description %></td>
-        <td><%= link_to 'Show', zoigl_beer %></td>
-        <td><%= link_to 'Edit', edit_zoigl_beer_path(zoigl_beer) %></td>
-        <td><%= link_to 'Destroy', zoigl_beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l zoigl_beer.created_at, format: :long %></td>
+        <td>
+          <%= link_to zoigl_beer_path(zoigl_beer), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to zoigl_beer_path(zoigl_beer), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Zoigl beer', new_zoigl_beer_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_zoigl_beer_path,
+            :class => 'btn btn-primary' %>
