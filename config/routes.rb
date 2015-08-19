@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :zoigl_stubes
+  resources :zoigl_stubes do
+  #->Prelang (voting/acts_as_votable)
+  member do
+    get "vote"
+  end
+end
+
 
   resources :zoigl_beers do
   #->Prelang (voting/acts_as_votable)
