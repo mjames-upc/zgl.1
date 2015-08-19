@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beername:</strong>
+  <%= @zoigl_beer.beername %>
+</p>
+
+<p>
+  <strong>Rbid:</strong>
+  <%= @zoigl_beer.rbid %>
+</p>
+
+<p>
+  <strong>Rbbrewer:</strong>
+  <%= @zoigl_beer.rbbrewer %>
+</p>
+
+<p>
+  <strong>Alcohol:</strong>
+  <%= @zoigl_beer.alcohol %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @zoigl_beer.description %>
+</p>
+
+<%= link_to 'Edit', edit_zoigl_beer_path(@zoigl_beer) %> |
+<%= link_to 'Back', zoigl_beers_path %>

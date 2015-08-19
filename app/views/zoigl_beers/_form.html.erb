@@ -1,0 +1,15 @@
+<%= simple_form_for(@zoigl_beer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :beername %>
+    <%= f.input :rbid %>
+    <%= f.input :rbbrewer %>
+    <%= f.input :alcohol %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

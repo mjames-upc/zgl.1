@@ -1,0 +1,2 @@
+module ZoiglBeersHelper
+end
