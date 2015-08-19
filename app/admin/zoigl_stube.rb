@@ -1,4 +1,5 @@
 ActiveAdmin.register ZoiglStube do
+  permit_params :stube_name, :address, :city, :rbid, :founded, :score, :lat, :lon, :web, :hours, :description, :phone
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
