@@ -1,4 +1,5 @@
 ActiveAdmin.register ZoiglBeer do
+  permit_params :beername, :rbid, :rbbrewer, :alcohol, :description
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
