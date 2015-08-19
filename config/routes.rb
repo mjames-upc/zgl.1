@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landings/index'
+
   resources :zoigl_stubes do
   #->Prelang (voting/acts_as_votable)
   member do
