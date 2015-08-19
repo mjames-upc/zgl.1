@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ZoiglKalendar -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ZoiglKalendar %></h1>
+</div>
 
-<p>
-  <strong>Begin:</strong>
-  <%= @zoigl_kalendar.begin %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:begin) %></dt>
+      <dd><pre class="prettyprint"><%= @zoigl_kalendar.begin %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:end) %></dt>
+      <dd><pre class="prettyprint"><%= @zoigl_kalendar.end %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @zoigl_kalendar.description %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>End:</strong>
-  <%= @zoigl_kalendar.end %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              zoigl_kalendars_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_zoigl_kalendar_path(@zoigl_kalendar), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              zoigl_kalendar_path(@zoigl_kalendar),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @zoigl_kalendar.description %>
-</p>
-
-<p>
-  <strong>Zoigl stube:</strong>
-  <%= @zoigl_kalendar.zoigl_stube %>
-</p>
-
-<%= link_to 'Edit', edit_zoigl_kalendar_path(@zoigl_kalendar) %> |
-<%= link_to 'Back', zoigl_kalendars_path %>

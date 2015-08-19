@@ -1,31 +1,40 @@
-<h1>Listing zoigl_kalendars</h1>
-
-<table>
+<%- model_class = ZoiglKalendar -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ZoiglKalendar %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Begin</th>
-      <th>End</th>
-      <th>Description</th>
-      <th>Zoigl stube</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:begin) %></th>
+      <th><%= model_class.human_attribute_name(:end) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @zoigl_kalendars.each do |zoigl_kalendar| %>
       <tr>
+        <td><%= zoigl_kalendar.id %></td>
         <td><%= zoigl_kalendar.begin %></td>
         <td><%= zoigl_kalendar.end %></td>
         <td><%= zoigl_kalendar.description %></td>
-        <td><%= zoigl_kalendar.zoigl_stube %></td>
-        <td><%= link_to 'Show', zoigl_kalendar %></td>
-        <td><%= link_to 'Edit', edit_zoigl_kalendar_path(zoigl_kalendar) %></td>
-        <td><%= link_to 'Destroy', zoigl_kalendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l zoigl_kalendar.created_at, format: :long %></td>
+        <td>
+          <%= link_to zoigl_kalendar_path(zoigl_kalendar), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to zoigl_kalendar_path(zoigl_kalendar), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Zoigl kalendar', new_zoigl_kalendar_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_zoigl_kalendar_path,
+            :class => 'btn btn-primary' %>

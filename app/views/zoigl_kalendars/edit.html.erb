@@ -1,6 +1,5 @@
-<h1>Editing zoigl_kalendar</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @zoigl_kalendar %> |
-<%= link_to 'Back', zoigl_kalendars_path %>
+<%- model_class = ZoiglKalendar -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => ZoiglKalendar %></h1>
+</div>
+<%= render :partial => 'form' %>
